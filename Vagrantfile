@@ -65,10 +65,10 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-  sudo echo 'deb http://download.virtualbox.org/virtualbox/debian xenial contrib' >> /etc/apt/sources.list
-  wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-  wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-  sudo apt-get update
+#  sudo echo 'deb http://download.virtualbox.org/virtualbox/debian xenial contrib' >> /etc/apt/sources.list
+#  wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+#  wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+#  sudo apt-get update
   sudo debconf-set-selections <<< "xymon-client    hobbit-client/HOBBITSERVERS     string  127.0.0.1"
   sudo apt-get install -y xymon git
   sudo a2enmod authz_groupfile
