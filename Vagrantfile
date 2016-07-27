@@ -73,16 +73,15 @@ Vagrant.configure(2) do |config|
   sudo apt-get install -y xymon git
   sudo a2enmod authz_groupfile
   sudo a2enmod cgi
-  sudo /etc/init.d/apache2 restart
+  #sudo /etc/init.d/apache2 restart
   cd /tmp/
   git clone https://github.com/poorleno1/xymon_install_conf.git
   cp /tmp/xymon_install_conf/xymon.conf /etc/apache2/sites-available/xymon.conf
-  
-  #cp /etc/apache2/conf.d/xymon /etc/apache2/sites-available/xymon.conf
-  #cp /vagrant/xymon.conf /etc/apache2/sites-available/xymon.conf
+  cd /etc/apache2/sites-enabled
   ln -s ../sites-available/xymon.conf
   cd /etc/apache2/mods-enabled
   ln -s ../mods-available/rewrite.load
   sudo /etc/init.d/apache2 restart
+  sudo /etc/init.d/xymon restart
   SHELL
 end
